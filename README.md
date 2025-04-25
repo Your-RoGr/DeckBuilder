@@ -15,6 +15,7 @@ A terminal-based application to help you create and manage decks for [Anki](http
 - [Usage](#Usage)
 - [Dependencies](#Dependencies)
 - [Installation](#Installation)
+- [TODO](#TODO)
 - [License](#License)
 
 ## Features
@@ -96,6 +97,10 @@ DeckBuilder
 ```
 
 If you see the terminal menu, the installation was successful!
+
+## TODO
+
+See the current tasks and roadmap in [TODO.md](TODO.md).
 
 ## License
 
