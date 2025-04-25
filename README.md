@@ -2,7 +2,6 @@
 [![Latest Release](https://img.shields.io/github/v/release/Your-RoGr/DeckBuilder)](https://github.com/Your-RoGr/DeckBuilder/releases)
 ![License](https://img.shields.io/github/license/Your-RoGr/DeckBuilder)
 ![Downloads](https://img.shields.io/github/downloads/Your-RoGr/DeckBuilder/total)
-[![Go Report Card](https://goreportcard.com/badge/Your-RoGr/DeckBuilder)](https://goreportcard.com/report/github.com/Your-RoGr/DeckBuilder)
 ![GitHub Stars](https://img.shields.io/github/stars/Your-RoGr/DeckBuilder?style=social)
 
 # DeckBuilder
