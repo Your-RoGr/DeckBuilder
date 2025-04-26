@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Version-0.1.1-blue)](https://github.com/Your-RoGr/DeckBuilder/tree/master)
+[![Version](https://img.shields.io/badge/Version-0.1.2-blue)](https://github.com/Your-RoGr/DeckBuilder/tree/master)
 [![Latest Release](https://img.shields.io/github/v/release/Your-RoGr/DeckBuilder)](https://github.com/Your-RoGr/DeckBuilder/releases)
 ![License](https://img.shields.io/github/license/Your-RoGr/DeckBuilder)
 ![Downloads](https://img.shields.io/github/downloads/Your-RoGr/DeckBuilder/total)

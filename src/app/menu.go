@@ -180,7 +180,7 @@ func (m *Menu) draw() {
 	}
 
 	appUtils.DrawVerticalBorders()
-	appUtils.DrawHeader("DeckBuilder v0.1.0")
+	appUtils.DrawHeader("DeckBuilder v0.1.2")
 
 	if m.parent != nil && m.parent.name == "Select file from catalog" {
 		appUtils.PrintHotkeyBar("  ▲/  ▼- select; D - delete; Enter - select; Esc - exit.", false)

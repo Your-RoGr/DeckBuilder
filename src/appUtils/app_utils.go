@@ -81,7 +81,7 @@ func GetInput(prompt string, inputRequire bool) (string, bool) {
 	termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
 	PrintHotkeyBar(prompt, true)
 	DrawVerticalBorders()
-	DrawHeader("DeckBuilder v0.1.0")
+	DrawHeader("DeckBuilder v0.1.2")
 	PrintHotkeyBar("Enter - send; Esc - exit.", false)
 	termbox.Flush()
 	var input []rune
@@ -132,9 +132,9 @@ func GetInput(prompt string, inputRequire bool) (string, bool) {
 		for i := 0; i < cursorPos; i++ {
 			cursorX += runewidth.RuneWidth(input[i])
 		}
-		
+
 		termbox.SetCell(cursorX, 2, '_', termbox.ColorGreen|termbox.AttrBold, termbox.ColorDefault)
-		
+
 		DrawVerticalBorders()
 		termbox.Flush()
 	}

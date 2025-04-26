@@ -97,7 +97,7 @@ func (fc *FileChooser) redraw() {
 	}
 
 	appUtils.DrawVerticalBorders()
-	appUtils.DrawHeader("DeckBuilder v0.1.0")
+	appUtils.DrawHeader("DeckBuilder v0.1.2")
 	appUtils.PrintHotkeyBar("  ▲/  ▼- select; A - create file; Enter - open; Esc - exit.", false)
 	termbox.Flush()
 }
@@ -168,7 +168,7 @@ func (fc *FileChooser) Start() (string, error) {
 
 						fullpath := filepath.Join(fc.currentDir, name)
 						err := dataFrame.CreateNewCSV(fullpath, []string{"Word", "Translation"}, ';')
-						
+
 						if err == nil {
 							fc.readDir()
 						} else {
