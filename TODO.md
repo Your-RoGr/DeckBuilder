@@ -9,7 +9,7 @@
 
 ## Interface Improvements
 
-- [ ] Add a visible input cursor (caret) when enteringt input
+- [x] Add a visible input cursor (caret) when enteringt input
 - [ ] Add quick search and filtering in the deck selection menu
 - [ ] Implement a progress bar for lengthy operations (reading/searching large files)
 
@@ -21,4 +21,4 @@
 
 ## Bugs
 
-- [ ] Add support for entering spaces in GetInput
+- [x] Add support for entering spaces in GetInput
