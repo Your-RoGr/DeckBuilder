@@ -9,6 +9,7 @@
 
 ## Interface Improvements
 
+- [ ] Add a visible input cursor (caret) when enteringt input
 - [ ] Add quick search and filtering in the deck selection menu
 - [ ] Implement a progress bar for lengthy operations (reading/searching large files)
 
@@ -17,3 +18,7 @@
 - [ ] Import decks from other formats (e.g., JSON, TXT)
 - [ ] Export decks to formats supported by Anki (e.g., apkg)
 - [ ] Integrity check and data validation when loading a deck
+
+## Bugs
+
+- [ ] Add support for entering spaces in GetInput
