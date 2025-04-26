@@ -95,7 +95,7 @@ func (m *Menu) Start() error {
 				err := m.selectOption()
 
 				if err != nil {
-					appUtils.PromptForFilename(err.Error(), false)
+					appUtils.GetInput(err.Error(), false)
 				}
 			case termbox.KeyEsc:
 				m.running = false
@@ -108,7 +108,7 @@ func (m *Menu) Start() error {
 					if m.parent != nil {
 						if m.parent.name == "Select file from catalog" {
 
-							input, ok := appUtils.PromptForFilename(
+							input, ok := appUtils.GetInput(
 								fmt.Sprintf("Delete file %s? (y)", m.options[m.selected]),
 								true,
 							)

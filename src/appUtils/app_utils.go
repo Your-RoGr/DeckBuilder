@@ -75,8 +75,8 @@ func PrintHotkeyBar(msg string, isUp bool) {
 	}
 }
 
-// PromptForFilename - Tooltip for entering the file name (in the simple variant - at the bottom of the screen)
-func PromptForFilename(prompt string, inputRequire bool) (string, bool) {
+// GetInput - Tooltip for entering the input
+func GetInput(prompt string, inputRequire bool) (string, bool) {
 
 	termbox.Clear(termbox.ColorDefault, termbox.ColorDefault)
 	PrintHotkeyBar(prompt, true)
@@ -85,6 +85,7 @@ func PromptForFilename(prompt string, inputRequire bool) (string, bool) {
 	PrintHotkeyBar("Enter - send; Esc - exit.", false)
 	termbox.Flush()
 	var input []rune
+	cursorPos := 0
 
 	for {
 		switch ev := termbox.PollEvent(); ev.Type {
@@ -98,11 +99,24 @@ func PromptForFilename(prompt string, inputRequire bool) (string, bool) {
 				return "", false
 			}
 			if ev.Key == termbox.KeyBackspace || ev.Key == termbox.KeyBackspace2 {
-				if len(input) > 0 {
-					input = input[:len(input)-1]
+				if cursorPos > 0 {
+					input = append(input[:cursorPos-1], input[cursorPos:]...)
+					cursorPos--
 				}
+			} else if ev.Key == termbox.KeyArrowLeft {
+				if cursorPos > 0 {
+					cursorPos--
+				}
+			} else if ev.Key == termbox.KeyArrowRight {
+				if cursorPos < len(input) {
+					cursorPos++
+				}
+			} else if ev.Key == termbox.KeySpace && len(input) < 128 {
+				input = append(input[:cursorPos], append([]rune{' '}, input[cursorPos:]...)...)
+				cursorPos++
 			} else if ev.Ch != 0 && len(input) < 128 {
-				input = append(input, ev.Ch)
+				input = append(input[:cursorPos], append([]rune{ev.Ch}, input[cursorPos:]...)...)
+				cursorPos++
 			}
 		}
 
@@ -114,6 +128,13 @@ func PromptForFilename(prompt string, inputRequire bool) (string, bool) {
 
 		SetLine(2, 2, string(input), termbox.ColorYellow, termbox.ColorDefault)
 
+		cursorX := 2
+		for i := 0; i < cursorPos; i++ {
+			cursorX += runewidth.RuneWidth(input[i])
+		}
+		
+		termbox.SetCell(cursorX, 2, '_', termbox.ColorGreen|termbox.AttrBold, termbox.ColorDefault)
+		
 		DrawVerticalBorders()
 		termbox.Flush()
 	}

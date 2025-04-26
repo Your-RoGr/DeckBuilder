@@ -156,7 +156,7 @@ func (fc *FileChooser) Start() (string, error) {
 			default:
 				if ev.Ch == 'a' || ev.Ch == 'A' {
 
-					name, ok := appUtils.PromptForFilename(
+					name, ok := appUtils.GetInput(
 						fmt.Sprintf(
 							"%s/... Enter the name of the new file: ",
 							fc.currentDir,
@@ -172,7 +172,7 @@ func (fc *FileChooser) Start() (string, error) {
 						if err == nil {
 							fc.readDir()
 						} else {
-							appUtils.PromptForFilename("File creation error: "+err.Error(), false)
+							appUtils.GetInput("File creation error: "+err.Error(), false)
 						}
 					}
 				}

@@ -57,7 +57,7 @@ func (wa *WordAdder) Start(mode string, path string) error {
 
 func wordMode(wa *WordAdder) error {
 
-	word, ok := appUtils.PromptForFilename("Enter a word to add: ", true)
+	word, ok := appUtils.GetInput("Enter a word to add: ", true)
 	if !ok || strings.TrimSpace(word) == "" {
 		return errors.New("break")
 	}
@@ -67,28 +67,28 @@ func wordMode(wa *WordAdder) error {
 	// Check if the word already exists in the file
 	exists, err := wordExistsInFile(wa.filePath, word)
 	if err != nil {
-		appUtils.PromptForFilename("Error: "+err.Error(), false)
+		appUtils.GetInput("Error: "+err.Error(), false)
 		return err
 	}
 
 	if exists {
-		appUtils.PromptForFilename(fmt.Sprintf("'%s' already exists!", word), false)
+		appUtils.GetInput(fmt.Sprintf("'%s' already exists!", word), false)
 		return nil
 	}
 
 	err = wa.df.AddUniqueRowAndSave([]string{word, ""}, wa.filePath)
 	if err != nil {
-		appUtils.PromptForFilename("Error: "+err.Error(), false)
+		appUtils.GetInput("Error: "+err.Error(), false)
 		return err
 	}
 
-	appUtils.PromptForFilename(fmt.Sprintf("%s added!", word), false)
+	appUtils.GetInput(fmt.Sprintf("%s added!", word), false)
 	return nil
 }
 
 func wordTranslateMode(wa *WordAdder) error {
 
-	word, ok := appUtils.PromptForFilename("Enter a word to add: ", true)
+	word, ok := appUtils.GetInput("Enter a word to add: ", true)
 	if !ok || strings.TrimSpace(word) == "" {
 		return errors.New("break")
 	}
@@ -98,16 +98,16 @@ func wordTranslateMode(wa *WordAdder) error {
 	// Check if the word already exists in the file
 	exists, err := wordExistsInFile(wa.filePath, word)
 	if err != nil {
-		appUtils.PromptForFilename("Error: "+err.Error(), false)
+		appUtils.GetInput("Error: "+err.Error(), false)
 		return err
 	}
 
 	if exists {
-		appUtils.PromptForFilename(fmt.Sprintf("'%s' already exists!", word), false)
+		appUtils.GetInput(fmt.Sprintf("'%s' already exists!", word), false)
 		return nil
 	}
 
-	translate, ok := appUtils.PromptForFilename("Enter a translate to add: ", true)
+	translate, ok := appUtils.GetInput("Enter a translate to add: ", true)
 	if !ok || strings.TrimSpace(word) == "" {
 		return errors.New("strings.TrimSpace(word) == \"\"")
 	}
@@ -116,11 +116,11 @@ func wordTranslateMode(wa *WordAdder) error {
 
 	err = wa.df.AddUniqueRowAndSave([]string{word, translate}, wa.filePath)
 	if err != nil {
-		appUtils.PromptForFilename("Error: "+err.Error(), false)
+		appUtils.GetInput("Error: "+err.Error(), false)
 		return err
 	}
 
-	appUtils.PromptForFilename(fmt.Sprintf("%s - %s added!", word, translate), false)
+	appUtils.GetInput(fmt.Sprintf("%s - %s added!", word, translate), false)
 	return nil
 }
 

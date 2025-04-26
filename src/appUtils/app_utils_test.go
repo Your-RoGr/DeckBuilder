@@ -39,10 +39,10 @@ func TestPrintHotkeyBarLogic(t *testing.T) {
 	testUtils.NoPanic(t, func() { PrintHotkeyBar("Test Message", false) })
 }
 
-func TestPromptForFilenameLogic(t *testing.T) {
+func TestGetInputLogic(t *testing.T) {
 	testUtils.NoPanic(t, func() {
 		termbox.Init()
 		defer termbox.Close()
-		PromptForFilename("prompt", false)
+		GetInput("prompt", false)
 	})
 }
